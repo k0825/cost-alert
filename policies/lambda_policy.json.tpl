@@ -9,6 +9,13 @@
         "logs:PutLogEvents"
       ],
       "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "secretmanager:GetSecretValue"
+      ],
+      "Resource": "${secret_arn}"
     }
   ]
 }

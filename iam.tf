@@ -4,8 +4,11 @@ resource "aws_iam_role" "lambda_role" {
 }
 
 resource "aws_iam_policy" "lambda_policy" {
-  name   = "${local.lambda_function_name}-policy"
-  policy = file("policies/lambda_policy.json")
+  name = "${local.lambda_function_name}-policy"
+  policy = templatefile("policies/lambda_policy.json.tpl",
+    {
+      secret_arn = data.aws_secretsmanager_secret.secret.arn
+  })
 }
 
 resource "aws_iam_role_policy_attachment" "lambda_role_policy_attachment" {

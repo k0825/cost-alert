@@ -17,7 +17,8 @@ resource "aws_lambda_function" "function" {
 
   environment {
     variables = {
-      LINE_BROADCAST_WEBHOOK_URL = "https://api.line.me/v2/bot/message/broadcast"
+      LINE_BROADCAST_WEBHOOK_URL    = "https://api.line.me/v2/bot/message/broadcast"
+      LINE_CHANNEL_ACCESS_TOKEN_ARN = data.aws_secretsmanager_secret.secret.arn
     }
   }
 }
