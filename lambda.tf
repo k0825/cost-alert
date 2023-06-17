@@ -5,7 +5,7 @@ locals {
 resource "aws_lambda_function" "function" {
   function_name    = local.lambda_function_name
   role             = aws_iam_role.lambda_role.arn
-  handler          = "lambda.lambda_handler"
+  handler          = "handler.lambda_handler"
   filename         = data.archive_file.lambda.output_path
   source_code_hash = data.archive_file.lambda.output_base64sha256
   runtime          = "python3.10"
