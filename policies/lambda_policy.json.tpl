@@ -13,7 +13,7 @@
     {
       "Effect": "Allow",
       "Action": [
-        "secretmanager:GetSecretValue"
+        "secretsmanager:GetSecretValue"
       ],
       "Resource": "${secret_arn}"
     }
