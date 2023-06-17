@@ -14,6 +14,12 @@ resource "aws_lambda_function" "function" {
     aws_iam_role_policy_attachment.lambda_role_policy_attachment,
     aws_cloudwatch_log_group.log_group
   ]
+
+  environment {
+    variables = {
+      LINE_BROADCAST_WEBHOOK_URL = "https://api.line.me/v2/bot/message/broadcast"
+    }
+  }
 }
 
 data "archive_file" "lambda" {
