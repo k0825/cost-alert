@@ -40,5 +40,5 @@ def send_message(webhook_url, token, message):
 def lambda_handler(event, context):
     line_broadcast_webhook_url = os.getenv('LINE_BROADCAST_WEBHOOK_URL')
     line_channel_access_token = get_secret()
-    message = event['Recrods'][0]
+    message = event['Records'][0]
     send_message(line_broadcast_webhook_url, line_channel_access_token, message)
