@@ -9,3 +9,9 @@ resource "aws_sns_topic_policy" "topic_policy" {
     account_id = data.aws_caller_identity.current.account_id
   })
 }
+
+resource "aws_sns_topic_subscription" "subscription" {
+  topic_arn = aws_sns_topic.topic.arn
+  protocol  = "lambda"
+  endpoint  = aws_lambda_function.function.arn
+}
