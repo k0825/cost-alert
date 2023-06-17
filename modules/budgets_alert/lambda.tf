@@ -25,8 +25,8 @@ resource "aws_lambda_function" "function" {
 
 data "archive_file" "lambda" {
   type        = "zip"
-  source_dir  = "./lambda/src"
-  output_path = "./build/lambda.zip"
+  source_dir  = "${path.module}/lambda/src"
+  output_path = "${path.module}/lambda/build/lambda.zip"
 }
 
 resource "aws_lambda_permission" "sns" {
