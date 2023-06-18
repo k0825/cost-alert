@@ -65,7 +65,7 @@ def send_message(webhook_url, token, message):
     ))
 
 def create_message(start_date, end_date, total_cost, forecast_cost, service_costs):
-    message = f'${start_date}~{end_date}のAWS利用料金は、{round(total_cost, 2)} USD\n'
+    message = f'{start_date}~{end_date}のAWS利用料金は、{round(total_cost, 2)} USD\n'
     message += f'今月のAWS利用料金の予測は、{round(forecast_cost, 2)} USD\n'
     message += 'サービスごとの利用料金は、\n'
     for service_name, service_cost in service_costs.items():
