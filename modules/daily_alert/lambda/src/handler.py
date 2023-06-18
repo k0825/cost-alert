@@ -12,7 +12,7 @@ ce = boto3.client('ce')
 
 def lambda_handler(event, context):
     line_channel_access_token = get_secret()
-    webhook_url = os.getenv('LINE_WEBHOOK_URL')
+    webhook_url = os.getenv('LINE_BROADCAST_WEBHOOK_URL')
 
     today = datetime.date.today()
     today_iso = get_today_iso(today)
