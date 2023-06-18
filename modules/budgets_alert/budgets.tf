@@ -8,7 +8,7 @@ resource "aws_budgets_budget" "budget" {
   budget_type       = "COST"
   notification {
     comparison_operator       = "GREATER_THAN"
-    threshold                 = 10
+    threshold                 = 80
     threshold_type            = "PERCENTAGE"
     notification_type         = "FORECASTED"
     subscriber_sns_topic_arns = [aws_sns_topic.topic.arn]
