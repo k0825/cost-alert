@@ -28,3 +28,11 @@ data "archive_file" "lambda" {
   source_dir  = "${path.module}/lambda/src"
   output_path = "${path.module}/lambda/build/lambda.zip"
 }
+
+resource "aws_lambda_permission" "permission" {
+  statement_id  = "AllowExecutionFromCloudWatch"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.function.function_name
+  principal     = "events.amazonaws.com"
+  source_arn    = aws_cloudwatch_event_rule.event_rule.arn
+}
