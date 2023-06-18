@@ -68,7 +68,8 @@ def create_message(start_date, end_date, total_cost, forecast_cost, service_cost
     message += f'今月のAWS利用料金の予測は、{round(forecast_cost, 2)} USD\n'
     message += 'サービスごとの利用料金は、\n'
     for service_name, service_cost in service_costs.items():
-        message += f'{service_name}: {round(service_cost, 2)} USD\n'
+        if service_cost > 0:
+            message += f'{service_name}: {round(service_cost, 2)} USD\n'
     return message
 
 def get_total_cost(start_date, end_date):
