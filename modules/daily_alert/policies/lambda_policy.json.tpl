@@ -6,7 +6,9 @@
       "Action": [
         "logs:CreateLogGroup",
         "logs:CreateLogStream",
-        "logs:PutLogEvents"
+        "logs:PutLogEvents",
+        "ce:GetCostAndUsage",
+        "ce:GetCostForecast"
       ],
       "Resource": "*"
     },
